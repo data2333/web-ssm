@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button class="test">
+
+</button>
+<script src="js/jquery-1.12.0.min.js">
+
+</script>
+<script type="text/javascript">
+    (function () {
+        $(".test").click(function () {
+            console.log("fuck");
+            window.setTimeout(function () {
+                console.log("shit")
+            },2000)
+        })
+    })(window)
+</script>
+</body>
+</html>
