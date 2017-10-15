@@ -13,9 +13,9 @@ import java.util.List;
 @Repository
 public interface UserDao {
 
-    User selectUserById(@Param("userId") Long userId);
-
-    User selectUserByPhoneOrEmail(@Param("emailOrPhone") String emailOrPhone, @Param("state") Short state);
-
-    List<User> selectAllUser();
+//    User selectUserById(@Param("userId") Long userId);
+//
+//    User selectUserByPhoneOrEmail(@Param("emailOrPhone") String emailOrPhone, @Param("state") Short state);
+//
+//    List<User> selectAllUser();
 }

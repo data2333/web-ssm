@@ -1,12 +1,11 @@
 package com.heitian.ssm.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.heitian.ssm.dao.PostsDao;
 import com.heitian.ssm.model.User;
 import com.heitian.ssm.service.UserService;
-import com.heitian.ssm.service.test;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Test;
-import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,14 +30,16 @@ public class UserController {
     private Logger log = Logger.getLogger(UserController.class);
     @Resource
     private UserService userService;
-
+    @Resource
+    private PostsDao postsDao;
     @RequestMapping("/showUser")
     public String showUser(HttpServletRequest request, Model model) {
-        log.info("查询所有用户信息");
-        System.out.println(userService.getAllUser());
-        List<User> userList = userService.getAllUser();
-        model.addAttribute("userList", userList);
-        return "showUser";
+//        log.info("查询所有用户信息");
+//        System.out.println(userService.getAllUser());
+//        List<User> userList = userService.getAllUser();
+//        model.addAttribute("userList", userList);
+//        return "showUser";
+        return null;
     }
 
     @RequestMapping("/fuck")
@@ -57,6 +58,13 @@ public class UserController {
         json.put("one","shit");
         return map;
     }
+    @RequestMapping("/shit")
+    @ResponseBody
+    public List getAllPosts(HttpServletRequest request){
+//        System.out.println(this.postsDao.getAll(request.getParameter("kind")));
+        System.out.println(request.getParameter("kind"));
+        return this.postsDao.getAll(request.getParameter("kind"));
+    }
     @ResponseBody
     @RequestMapping(value="/student",method=RequestMethod.POST)
     public String student(@RequestBody Map students ){
@@ -64,15 +72,6 @@ public class UserController {
             System.out.println("学生姓名:"+students.get("name"));
 //        }
         return "ok";
-    }
-    @Test
-    public void test() {
-        try {
-            Class.forName("");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        System.out.println(userService.getAllUser());
     }
 }
 class Student{

@@ -18,23 +18,23 @@ import java.util.List;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
-    @Resource
-    private UserDao userDao;
-
-    public User getUserById(Long userId) {
-        return userDao.selectUserById(userId);
-    }
-    
-    public User getUserByPhoneOrEmail(String emailOrPhone, Short state) {
-        return userDao.selectUserByPhoneOrEmail(emailOrPhone,state);
-    }
-    
-    public List<User> getAllUser() {
-        return userDao.selectAllUser();
-    }
-
-    public static void main(String[] args) {
-        UserServiceImpl userService=new UserServiceImpl();
-        Integer id=32;
-    }
+//    @Resource
+//    private UserDao userDao;
+//
+//    public User getUserById(Long userId) {
+//        return userDao.selectUserById(userId);
+//    }
+//
+//    public User getUserByPhoneOrEmail(String emailOrPhone, Short state) {
+//        return userDao.selectUserByPhoneOrEmail(emailOrPhone,state);
+//    }
+//
+//    public List<User> getAllUser() {
+//        return userDao.selectAllUser();
+//    }
+//
+//    public static void main(String[] args) {
+//        UserServiceImpl userService=new UserServiceImpl();
+//        Integer id=32;
+//    }
 }
