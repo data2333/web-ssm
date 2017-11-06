@@ -1,15 +1,8 @@
 package com.heitian.ssm.service.impl;
 
-import com.heitian.ssm.dao.UserDao;
-import com.heitian.ssm.model.User;
 import com.heitian.ssm.service.UserService;
-import com.heitian.ssm.service.test;
-import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * Created by Zhangxq on 2016/7/15.

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.heitian.ssm.dao.DepartmentDao">
+    <resultMap id="departments" type="com.heitian.ssm.model.SickContent">
+        <id column="id" property="id" javaType="Integer"/>
+        <result column="SicksName" property="SicksName" javaType="String"/>
+        <result column="contents" property="contents" javaType="String"/>
+        <result column="Symptom" property="Symptom" javaType="String"/>
+        <result column="Cure" property="Cure" javaType="String"/>
+    </resultMap>
+    <select id="getAllDepartments" resultType="String">
+        SELECT DISTINCT Departments FROM dictionary.getdepartment;
+    </select>
+    <select id="getAllDepartment" resultType="java.lang.String">
+        SELECT DISTINCT Department FROM getdepartment WHERE Departments=(SELECT DISTINCT Departments FROM getdepartment LIMIT #{Departments},1)
+    </select>
+    <select id="getSicks" resultType="java.lang.String">
+        SELECT SicksName FROM dictionary.getdepartment WHERE Department=#{DepartmentName}
+    </select>
+    <select id="getContents" resultType="com.heitian.ssm.model.SickContent">
+        SELECT * FROM dictionary.getdepartment WHERE SicksName=#{SickName} AND Department=#{Department}
+    </select>
+</mapper>

@@ -1,0 +1,4 @@
+//TODO
+SELECT DISTINCT Department FROM getdepartment WHERE Departments=(SELECT DISTINCT Departments FROM getdepartment LIMIT 0,1)
+//TODO
+select * from post order by convert(tittle USING gbk) COLLATE gbk_chinese_ci
