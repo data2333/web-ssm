@@ -12,7 +12,7 @@
         SELECT DISTINCT Departments FROM dictionary.getdepartment;
     </select>
     <select id="getAllDepartment" resultType="java.lang.String">
-        SELECT DISTINCT Department FROM getdepartment WHERE Departments=(SELECT DISTINCT Departments FROM getdepartment LIMIT #{Departments},1)
+        SELECT DISTINCT Department FROM getdepartment WHERE Departments=#{Departments}
     </select>
     <select id="getSicks" resultType="java.lang.String">
         SELECT SicksName FROM dictionary.getdepartment WHERE Department=#{DepartmentName}

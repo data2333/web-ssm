@@ -10,8 +10,8 @@ import java.util.List;
 public interface DepartmentService {
     List<String> getDepartments();
 
-    List<String> getDepartment(Integer num);
+    List<String> getDepartment(String Departments);
 
-    SickContent getContents(Integer department_num,List<String>departments,List<String>department, Integer sick);
-    List<String> getSicks(List<String> departments,Integer department);
+    SickContent getContents(Integer Department,Integer Sicks,Integer Content);
+    List<String> getSicks(Integer Department,Integer Sick);
 }

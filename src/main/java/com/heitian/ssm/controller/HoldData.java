@@ -9,6 +9,25 @@ public class HoldData {
     private List departments;
     private List department;
     private List sick_name;
+    private List<String> parts_name;
+    private List<String> sicks_in_parts;
+
+
+    public List<String> getSicks_in_parts() {
+        return sicks_in_parts;
+    }
+
+    public void setSicks_in_parts(List<String> sicks_in_parts) {
+        this.sicks_in_parts = sicks_in_parts;
+    }
+
+    public List<String> getParts_name() {
+        return parts_name;
+    }
+
+    public void setParts_name(List<String> parts_name) {
+        this.parts_name = parts_name;
+    }
 
     public List getDepartments() {
         return departments;

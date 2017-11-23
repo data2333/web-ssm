@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface DepartmentDao {
     List<String>getAllDepartments();
-    List<String>getAllDepartment(@Param("Departments")Integer num);
+    List<String>getAllDepartment(@Param("Departments")String Departments);
     List<String>getSicks(@Param("DepartmentName")String name);
-    SickContent getContents(@Param("SickName")String name,@Param("Department")String department);
+    SickContent getContents(@Param("Department")String department,@Param("SickName")String name);
 }

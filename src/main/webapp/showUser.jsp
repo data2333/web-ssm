@@ -18,7 +18,7 @@
         Connection con;
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dictionary?useUnicode=true&characterEncoding=utf8", "root", "smj123.0");
-        PreparedStatement pstmt=con.prepareStatement("SELECT * FROM post WHERE kind='骚年'");
+        PreparedStatement pstmt=con.prepareStatement("SELECT * FROM getPosts WHERE kind='骚年'");
         ResultSet resultSet=pstmt.executeQuery();
         if(resultSet.next()){
             out.print("shit");

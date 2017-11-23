@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.heitian.ssm.dao.GetPartsDao">
+    <resultMap id="parts" type="com.heitian.ssm.model.Parts">
+        <id column="id" property="id"/>
+        <result column="partName" property="partName"/>
+        <result column="SicksName" property="SicksName"/>
+        <result column="contents" property="contents"/>
+        <result column="Reason" property="Reason"/>
+        <result column="Prevention" property="Prevention"/>
+        <result column="Diagnostic" property="Diagnostic"/>
+    </resultMap>
+    <select id="getPartsName" resultType="java.lang.String">
+        SELECT DISTINCT partName FROM dictionary.getparts
+    </select>
+    <select id="getSicksName" resultType="java.lang.String">
+        SELECT SicksName FROM dictionary.getparts WHERE partName=#{PartsName}
+    </select>
+    <select id="getSicksContent" resultType="com.heitian.ssm.model.Parts">
+         SELECT * FROM dictionary.getparts WHERE partName=#{PartsName} limit #{SicksNum},1
+    </select>
+    <select id="getCrowdSickName" resultType="java.lang.String">
+        SELECT SicksName FROM dictionary.searchbycrowd WHERE CrowdName=#{PartsName}
+    </select>
+    <select id="getCrowdSicksContent" resultType="com.heitian.ssm.model.Parts">
+              SELECT * FROM dictionary.searchbycrowd WHERE CrowdName=#{PartsName} limit #{SicksNum},1
+    </select>
+</mapper>

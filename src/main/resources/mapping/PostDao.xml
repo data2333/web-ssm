@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.heitian.ssm.dao.PostDao">
+    <resultMap id="posts" type="com.heitian.ssm.model.Posts">
+        <id column="id" property="id"/>
+        <result column="ImageAddress" property="imageAddress"/>
+        <result column="kind" property="kind"/>
+        <result column="tittle" property="tittle"/>
+        <result column="content" property="content"/>
+    </resultMap>
+    <select id="getPostsByAbbreviation" resultType="com.heitian.ssm.model.Posts">
+        SELECT id,tittle,ImageAddress FROM getposts WHERE kind=#{abbreviation}
+    </select>
+    <select id="getContentsById" resultType="com.heitian.ssm.model.Posts">
+        SELECT tittle,content FROM getposts WHERE id=#{id}
+    </select>
+</mapper>

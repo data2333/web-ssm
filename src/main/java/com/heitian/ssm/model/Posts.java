@@ -1,23 +1,18 @@
 package com.heitian.ssm.model;
 
+import java.util.Date;
+
 /**
  * Created by Administrator on 2017/10/11.
  */
 public class Posts {
     private Integer id;
-    private String url;
-    private String time;
+
     private String imageAddress;
     private String kind;
     private String tittle;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private String content;
+    private String url;
 
     public String getUrl() {
         return url;
@@ -27,13 +22,23 @@ public class Posts {
         this.url = url;
     }
 
-    public String getTime() {
-        return time;
+    public String getContent() {
+        return content;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setContent(String content) {
+        this.content = content;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
 
     public String getImageAddress() {
         return imageAddress;
