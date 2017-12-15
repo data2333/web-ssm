@@ -15,4 +15,5 @@ public interface GetPartsDao {
     Parts getSicksContent(@Param("SicksNum")Integer num,@Param("PartsName")String PartsName);
     Parts getCrowdSicksContent(@Param("SicksNum")Integer num,@Param("PartsName")String PartsName);
     List<String>getCrowdSickName(@Param("PartsName")String PartsName);
+
 }

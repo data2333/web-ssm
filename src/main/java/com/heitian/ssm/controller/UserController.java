@@ -1,143 +1,73 @@
 package com.heitian.ssm.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.heitian.ssm.model.Parts;
-import com.heitian.ssm.model.Posts;
-import com.heitian.ssm.model.SickContent;
-import com.heitian.ssm.service.DepartmentService;
-import com.heitian.ssm.service.PostService;
+import com.heitian.ssm.model.Comments;
+import com.heitian.ssm.model.Message;
+import com.heitian.ssm.model.Pages;
+import com.heitian.ssm.model.User;
+import com.heitian.ssm.service.CommentService;
+import com.heitian.ssm.service.FoodsService;
 import com.heitian.ssm.service.UserService;
-import com.heitian.ssm.service.impl.PartServiceImpl;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
- * Created by Zhangxq on 2016/7/15.
+ * Created by Administrator on 2017/11/23.
  */
-
 @Controller
 @RequestMapping("/user")
 public class UserController {
-
-    private Logger log = Logger.getLogger(UserController.class);
     @Resource
-    private UserService userService;
+    CommentService commentService;
     @Resource
-    private DepartmentService departmentService;
+    FoodsService foodsService;
     @Resource
-    private PostService post;
-    private HoldData data = new HoldData();
-    @Resource
-    private PartServiceImpl parts;
+    UserService userService;
 
-
-    @RequestMapping(value = "/fuck_you", method = RequestMethod.GET)
-    @ResponseBody
-    public Map<String, String> Test(HttpServletRequest request) {
-        System.out.println(request.getParameter("userName"));
-        Map<String, String> map = new HashMap<String, String>();
-//        System.out.println(list.get(0).get("userName"));
-        map.put("one", "shit");
-        JSONObject json = new JSONObject();
-        json.put("one", "shit");
-        return map;
+    @RequestMapping("/addComments/{contents}/{user_id}/{post_id}/{comments_id}")
+    public void addComments(@PathVariable("contents") String content, @PathVariable("user_id") Integer user_id, @PathVariable("post_id") Integer post_id,@PathVariable("comments_id")Integer comments_id){
+        commentService.addComments(content, user_id, post_id,comments_id);
     }
 
-    @RequestMapping("/getDepartments")
+    @RequestMapping("/getComments/{post_id}")
     @ResponseBody
-    public List getAllDepartments() {
-        List<String> list = departmentService.getDepartments();
-        this.data.setDepartments(list);
-        return list;
+    public List<Comments> getComments(@PathVariable("post_id") Integer post_id) {
+        return commentService.getComments(post_id);
     }
 
-    @RequestMapping("/getDepartments/{Department}")
-    @ResponseBody
-    public List getAllDepartment(@PathVariable String Department) {
-        List<String> department = departmentService.getDepartment((String) data.getDepartments().get(Integer.parseInt(Department)));
-        data.setDepartment(department);
-        return department;
+    @RequestMapping("/addPraise/{user_id}/{post_id}")
+    public void addPraise(@PathVariable("user_id") Integer user_id, @PathVariable("post_id") Integer post_id) {
+        userService.addPraise(user_id, post_id);
     }
 
-    @RequestMapping("/getDepartments/{Department}/{sickName}")
-    @ResponseBody
-    public List getAllSicks(@PathVariable String Department, @PathVariable String sickName) {
-//        List<String> sick_names = departmentService.getSicks((String) data.getDepartment().get(Integer.parseInt(sickName)));
-//        data.setSick_name(sick_names);
-//        System.out.println(Department + "sick:"+sickName);
-//        for (String value : sick_names)
-//            System.out.println(value);
-        return  departmentService.getSicks(Integer.parseInt(Department),Integer.parseInt(sickName));
+    @RequestMapping("/getHandler/{id}")
+    public String getHandler(@PathVariable("id") Integer id, ModelMap map) {
+        Pages pages = foodsService.getHandler(id);
+        map.addAttribute("eat_together", pages.not_eat_together);
+        map.addAttribute("about_warning", pages.about_warning);
+        map.addAttribute("mother", pages.mother);
+        map.addAttribute("baby", pages.baby);
+        return "cnkang";
     }
 
-    @RequestMapping("/getDepartments/{Department}/{sickName}/{contents}")
+    @RequestMapping("/addUsers/{user_name}/{user_pwd}/{user_phone}")
     @ResponseBody
-    public SickContent getContents(@PathVariable String Department, @PathVariable String sickName, @PathVariable String contents) {
-        return departmentService.getContents(Integer.parseInt(Department),Integer.parseInt(sickName),Integer.parseInt(contents));
+    public Message getLoginMessage(@PathVariable("user_name") String user_name, @PathVariable("user_pwd") String user_pwd, @PathVariable("user_phone") String user_phone) {
+        return userService.addUserWithPhone(user_name, user_pwd, user_phone);
     }
-
+    @RequestMapping("/checkUsers/{user_phone}/{user_pwd}")
     @ResponseBody
-    @RequestMapping("/getPosts/{abbreviation}")
-    public List getPosts(@PathVariable("abbreviation") String abbreviation) {
-        return post.getPosts(abbreviation);
+    public Message LoginCheck(@PathVariable("user_phone") String user_phone, @PathVariable("user_pwd") String user_pwd) {
+        return userService.checkLogin(user_phone, user_pwd);
     }
-
+    @RequestMapping("/getCollection/{user_id}")
     @ResponseBody
-    @RequestMapping("/getParts")
-    public List getParts() {
-        data.setParts_name(parts.getParts());
-        return data.getParts_name();
-    }
-
-    @ResponseBody
-    @RequestMapping("/getParts/{PartId}")
-    public List getSickName(@PathVariable("PartId") String id) {
-        data.setSicks_in_parts(parts.getSicks(data.getParts_name().get(Integer.parseInt(id)), "getParts"));
-        return data.getSicks_in_parts();
-    }
-    @ResponseBody
-    @RequestMapping("/getPosts/posts/{PostId}")
-    public Posts getContent(@PathVariable("PostId") String id) {
-        return post.getContent(Integer.parseInt(id));
-    }
-
-    @ResponseBody
-    @RequestMapping("/getParts/{PartId}/{SickName}")
-    public Parts getPartsSickContents(@PathVariable("PartId") String num, @PathVariable("SickName") String id) {
-        return parts.getSicksContent(Integer.parseInt(id), data.getParts_name().get(Integer.parseInt(num)), "getParts");
-    }
-
-    @ResponseBody
-    @RequestMapping("/getCrowdSick")
-    public List getCrowdName() {
-        List<String> list = new ArrayList();
-        list.add("男人");
-        list.add("女人");
-        list.add("老人");
-        list.add("小孩");
-        data.setParts_name(list);
-        return data.getParts_name();
-    }
-
-    @ResponseBody
-    @RequestMapping("/getCrowdSick/{PartId}")
-    public List getCrowdSickName(@PathVariable("PartId") String id) {
-        data.setSicks_in_parts(parts.getSicks(data.getParts_name().get(Integer.parseInt(id)), "fuck"));
-        return data.getSicks_in_parts();
-    }
-
-    @ResponseBody
-    @RequestMapping("/getCrowdSick/{PartId}/{SickName}")
-    public Parts getCrowdSickContent(@PathVariable("PartId") String num, @PathVariable("SickName") String id) {
-        return parts.getSicksContent(Integer.parseInt(id), data.getParts_name().get(Integer.parseInt(num)), "fuck");
+    public User getCollection(@PathVariable("user_id") Integer user_id) {
+        return userService.getCollection(user_id);
     }
 }

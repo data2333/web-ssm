@@ -1,4 +1,4 @@
-package com.heitian.ssm.controller;
+package com.heitian.ssm.util;
 
 import java.util.List;
 

@@ -9,5 +9,6 @@ import java.util.List;
  */
 public interface PostService {
     List<Posts> getPosts(String abbreviation);
-    Posts getContent(Integer id);
+    Posts getContent(Integer user_id,Integer post_id);
+    Posts sendRedirect(Integer post_id);
 }

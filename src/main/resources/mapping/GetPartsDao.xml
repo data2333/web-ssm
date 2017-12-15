@@ -20,9 +20,9 @@
          SELECT * FROM dictionary.getparts WHERE partName=#{PartsName} limit #{SicksNum},1
     </select>
     <select id="getCrowdSickName" resultType="java.lang.String">
-        SELECT SicksName FROM dictionary.searchbycrowd WHERE CrowdName=#{PartsName}
+        SELECT SicksName FROM dictionary.searchbycrowd WHERE partName=#{PartsName}
     </select>
     <select id="getCrowdSicksContent" resultType="com.heitian.ssm.model.Parts">
-              SELECT * FROM dictionary.searchbycrowd WHERE CrowdName=#{PartsName} limit #{SicksNum},1
+        SELECT * FROM dictionary.searchbycrowd WHERE partName=#{PartsName} limit #{SicksNum},1
     </select>
 </mapper>

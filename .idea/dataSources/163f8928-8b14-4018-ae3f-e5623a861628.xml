@@ -1,458 +1,411 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="dictionary@localhost">
+<dataSource name="dictionary@47.94.145.225">
   <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
     <root id="1"/>
     <schema id="2" parent="1" name="dictionary">
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
-    <schema id="3" parent="1" name="app1"/>
-    <schema id="4" parent="1" name="cai"/>
-    <schema id="5" parent="1" name="classdesign"/>
-    <schema id="6" parent="1" name="information_schema"/>
-    <schema id="7" parent="1" name="mysql"/>
-    <schema id="8" parent="1" name="performance_schema"/>
-    <schema id="9" parent="1" name="shopping"/>
-    <schema id="10" parent="1" name="study"/>
-    <schema id="11" parent="1" name="sun"/>
-    <schema id="12" parent="1" name="sys"/>
-    <table id="13" parent="2" name="comments"/>
-    <table id="14" parent="2" name="effectandfoods"/>
-    <table id="15" parent="2" name="effects"/>
-    <table id="16" parent="2" name="foods_effects"/>
-    <table id="17" parent="2" name="foods_effects_warnings"/>
-    <table id="18" parent="2" name="getdepartment"/>
-    <table id="19" parent="2" name="getparts"/>
-    <table id="20" parent="2" name="getposts"/>
-    <table id="21" parent="2" name="le_ha_handler"/>
-    <table id="22" parent="2" name="post_and_praise"/>
-    <table id="23" parent="2" name="searchbycrowd"/>
-    <table id="24" parent="2" name="test"/>
-    <table id="25" parent="2" name="user_collections"/>
-    <table id="26" parent="2" name="users"/>
-    <column id="27" parent="13" name="id">
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="comments"/>
+    <table id="8" parent="2" name="effectandfoods"/>
+    <table id="9" parent="2" name="foods_effects"/>
+    <table id="10" parent="2" name="foods_effects_warnings"/>
+    <table id="11" parent="2" name="getdepartment"/>
+    <table id="12" parent="2" name="getparts"/>
+    <table id="13" parent="2" name="getposts"/>
+    <table id="14" parent="2" name="post_and_praise"/>
+    <table id="15" parent="2" name="searchbycrowd"/>
+    <table id="16" parent="2" name="test"/>
+    <table id="17" parent="2" name="user_collections"/>
+    <table id="18" parent="2" name="users"/>
+    <column id="19" parent="7" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="28" parent="13" name="create_time">
+    <column id="20" parent="7" name="create_time">
       <Position>2</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="29" parent="13" name="content">
+    <column id="21" parent="7" name="post_id">
       <Position>3</Position>
-      <DataType>text|0</DataType>
-    </column>
-    <column id="30" parent="13" name="author_id">
-      <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="31" parent="13" name="reply_obj_id">
+    <column id="22" parent="7" name="content">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="23" parent="7" name="author_id">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="32" parent="13" name="father_comment_id">
+    <column id="24" parent="7" name="reply_obj_id">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <key id="33" parent="13" name="PRIMARY">
+    <column id="25" parent="7" name="father_comment_id">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="26" parent="7" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="34" parent="14" name="id">
+    <column id="27" parent="8" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="35" parent="14" name="kind">
+    <column id="28" parent="8" name="kind">
       <Position>2</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="36" parent="14" name="foods">
+    <column id="29" parent="8" name="foods">
       <Position>3</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="37" parent="14" name="effects">
+    <column id="30" parent="8" name="effects">
       <Position>4</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="38" parent="14" name="PRIMARY">
+    <key id="31" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="39" parent="15" name="id">
+    <column id="32" parent="9" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="40" parent="15" name="effects">
+    <column id="33" parent="9" name="effects">
       <Position>2</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="41" parent="15" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="42" parent="16" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="43" parent="16" name="effects">
-      <Position>2</Position>
-      <DataType>text|0</DataType>
-    </column>
-    <column id="44" parent="16" name="warning">
+    <column id="34" parent="9" name="warning">
       <Position>3</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="45" parent="16" name="kind">
+    <column id="35" parent="9" name="kind">
       <Position>4</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="46" parent="16" name="name">
+    <column id="36" parent="9" name="name">
       <Position>5</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="47" parent="16" name="only_effects">
+    <column id="37" parent="9" name="only_effects">
       <Position>6</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="48" parent="16" name="only_warning">
+    <column id="38" parent="9" name="only_warning">
       <Position>7</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="49" parent="16" name="head">
+    <column id="39" parent="9" name="head">
       <Position>8</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="50" parent="16" name="network">
+    <column id="40" parent="9" name="network">
       <Position>9</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="51" parent="16" name="PRIMARY">
+    <key id="41" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="52" parent="17" name="id">
+    <column id="42" parent="10" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="53" parent="17" name="effects">
+    <column id="43" parent="10" name="effects">
       <Position>2</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="54" parent="17" name="warning">
+    <column id="44" parent="10" name="warning">
       <Position>3</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="55" parent="17" name="kind">
+    <column id="45" parent="10" name="kind">
       <Position>4</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="56" parent="17" name="name">
+    <column id="46" parent="10" name="name">
       <Position>5</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="57" parent="17" name="only_effects">
+    <column id="47" parent="10" name="only_effects">
       <Position>6</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="58" parent="17" name="only_warning">
+    <column id="48" parent="10" name="only_warning">
       <Position>7</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="59" parent="17" name="head">
+    <column id="49" parent="10" name="head">
       <Position>8</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="60" parent="17" name="network">
+    <column id="50" parent="10" name="network">
       <Position>9</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="61" parent="17" name="wei">
+    <column id="51" parent="10" name="wei">
       <Position>10</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="62" parent="17" name="abridge">
+    <column id="52" parent="10" name="abridge">
       <Position>11</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="63" parent="17" name="PRIMARY">
+    <key id="53" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="64" parent="18" name="id">
+    <column id="54" parent="11" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="65" parent="18" name="Departments">
+    <column id="55" parent="11" name="Departments">
       <Position>2</Position>
       <DataType>varchar(200)|0</DataType>
     </column>
-    <column id="66" parent="18" name="Department">
+    <column id="56" parent="11" name="Department">
       <Position>3</Position>
       <DataType>varchar(200)|0</DataType>
     </column>
-    <column id="67" parent="18" name="SicksName">
+    <column id="57" parent="11" name="SicksName">
       <Position>4</Position>
       <DataType>varchar(200)|0</DataType>
     </column>
-    <column id="68" parent="18" name="contents">
+    <column id="58" parent="11" name="contents">
       <Position>5</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="69" parent="18" name="Symptom">
+    <column id="59" parent="11" name="Symptom">
       <Position>6</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="70" parent="18" name="Prevention">
+    <column id="60" parent="11" name="Prevention">
       <Position>7</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="71" parent="18" name="Cure">
+    <column id="61" parent="11" name="Cure">
       <Position>8</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="72" parent="18" name="PRIMARY">
+    <key id="62" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="73" parent="19" name="id">
+    <column id="63" parent="12" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="74" parent="19" name="partName">
+    <column id="64" parent="12" name="partName">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="75" parent="19" name="SicksName">
+    <column id="65" parent="12" name="SicksName">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="76" parent="19" name="contents">
+    <column id="66" parent="12" name="contents">
       <Position>4</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="77" parent="19" name="Reason">
+    <column id="67" parent="12" name="Reason">
       <Position>5</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="78" parent="19" name="Prevention">
+    <column id="68" parent="12" name="Prevention">
       <Position>6</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="79" parent="19" name="Diagnostic">
+    <column id="69" parent="12" name="Diagnostic">
       <Position>7</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="80" parent="19" name="PRIMARY">
+    <key id="70" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="81" parent="20" name="id">
+    <column id="71" parent="13" name="id">
       <Position>1</Position>
       <DataType>int(255)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="82" parent="20" name="tittle">
+    <column id="72" parent="13" name="tittle">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="83" parent="20" name="ImageAddress">
+    <column id="73" parent="13" name="ImageAddress">
       <Position>3</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="84" parent="20" name="kind">
+    <column id="74" parent="13" name="kind">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="85" parent="20" name="content">
+    <column id="75" parent="13" name="content">
       <Position>5</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="86" parent="20" name="url">
+    <column id="76" parent="13" name="url">
       <Position>6</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="87" parent="20" name="praise_num">
-      <Position>8</Position>
+    <column id="77" parent="13" name="praise_num">
+      <Position>7</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="88" parent="20" name="class_fuck">
+    <column id="78" parent="13" name="class_fuck">
+      <Position>8</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="79" parent="13" name="time">
       <Position>9</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="89" parent="20" name="time">
-      <Position>7</Position>
-      <DataType>text|0</DataType>
-    </column>
-    <column id="90" parent="20" name="scan_num">
-      <Position>10</Position>
-      <DataType>int(11)|0</DataType>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
-    </column>
-    <key id="91" parent="20" name="PRIMARY">
+    <key id="80" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="92" parent="21" name="id">
+    <column id="81" parent="14" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="93" parent="21" name="Not_eat_togger">
-      <Position>2</Position>
-      <DataType>text|0</DataType>
-    </column>
-    <column id="94" parent="21" name="about_waning">
-      <Position>3</Position>
-      <DataType>text|0</DataType>
-    </column>
-    <column id="95" parent="21" name="mother_and_baby">
-      <Position>4</Position>
-      <DataType>text|0</DataType>
-    </column>
-    <column id="96" parent="21" name="name">
-      <Position>5</Position>
-      <DataType>text|0</DataType>
-    </column>
-    <key id="97" parent="21" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="98" parent="22" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="99" parent="22" name="user_id">
+    <column id="82" parent="14" name="user_id">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="100" parent="22" name="post_id">
+    <column id="83" parent="14" name="post_id">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <key id="101" parent="22" name="PRIMARY">
+    <key id="84" parent="14" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="102" parent="23" name="id">
+    <column id="85" parent="15" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="103" parent="23" name="SicksName">
+    <column id="86" parent="15" name="CrowdName">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="87" parent="15" name="SicksName">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="104" parent="23" name="contents">
+    <column id="88" parent="15" name="contents">
       <Position>4</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="105" parent="23" name="Reason">
+    <column id="89" parent="15" name="Reason">
       <Position>5</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="106" parent="23" name="Prevention">
+    <column id="90" parent="15" name="Prevention">
       <Position>6</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="107" parent="23" name="Diagnostic">
+    <column id="91" parent="15" name="Diagnostic">
       <Position>7</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="108" parent="23" name="partName">
-      <Position>2</Position>
-      <DataType>varchar(20)|0</DataType>
-    </column>
-    <key id="109" parent="23" name="PRIMARY">
+    <key id="92" parent="15" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="110" parent="24" name="id">
+    <column id="93" parent="16" name="id">
       <Position>1</Position>
       <DataType>int(255)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="111" parent="24" name="Name">
+    <column id="94" parent="16" name="Name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="112" parent="24" name="date_time">
+    <column id="95" parent="16" name="date_time">
       <Position>3</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <key id="113" parent="24" name="PRIMARY">
+    <key id="96" parent="16" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="114" parent="25" name="id">
+    <column id="97" parent="17" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="115" parent="25" name="user_id">
+    <column id="98" parent="17" name="user_id">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="116" parent="25" name="post_id">
+    <column id="99" parent="17" name="post_id">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <key id="117" parent="25" name="PRIMARY">
+    <key id="100" parent="17" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="118" parent="26" name="id">
+    <column id="101" parent="18" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="119" parent="26" name="user_name">
+    <column id="102" parent="18" name="user_name">
       <Position>2</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="120" parent="26" name="user_pwd">
+    <column id="103" parent="18" name="user_pwd">
       <Position>3</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="121" parent="26" name="user_phone">
+    <column id="104" parent="18" name="user_collection">
       <Position>4</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="122" parent="26" name="PRIMARY">
+    <column id="105" parent="18" name="user_phone">
+      <Position>5</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <key id="106" parent="18" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

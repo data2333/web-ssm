@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.heitian.ssm.dao.CommentDao">
+    <resultMap id="comments" type="com.heitian.ssm.model.Comments" >
+        <id column="id" property="id" javaType="Integer"/>
+        <result column="create_time" property="create_time" javaType="String"/>
+        <result column="content" property="content" javaType="String"/>
+        <result property="author_id" column="author" />
+        <result column="reply_obj_id" property="reply_obj_id"/>
+        <result column="father_comment_id" property="father_comment_id"/>
+        <collection property="author" ofType="com.heitian.ssm.model.User">
+            <id property="id" column="id"/>
+            <result property="user_name" column="user_name"/>
+        </collection>
+    </resultMap>
+    <resultMap id="getUsers" type="com.heitian.ssm.model.User">
+        <id property="id" column="id"/>
+        <result property="user_name" column="user_name"/>
+    </resultMap>
+    <insert id="addComments">
+        INSERT INTO comments(create_time, content, author_id, reply_obj_id,father_comment_id) VALUES(#{time},#{comment_contents},#{user_id},#{post_id},#{Comments_id})
+    </insert>
+    <insert id="addTime">
+        INSERT INTO test VALUES(NULL,'操',#{time});
+    </insert>
+    <select id="getComment" resultMap="comments">
+        SELECT comments.id,create_time,content,user_name,users.id FROM dictionary.comments,dictionary.users WHERE reply_obj_id=#{post_id} and father_comment_id=-1 and comments.author_id=users.id
+    </select>
+    <select id="getChildComment" resultMap="comments">
+        SELECT comments.id,content,create_time,users.id,users.user_name FROM dictionary.comments WHERE reply_obj_id=#{reply_obj_id}
+    </select>
+    <select id="getTime" resultType="java.sql.Timestamp">
+        SELECT date_time FROM test WHERE id=#{id}
+    </select>
+    <select id="getSonComment" resultMap="comments">
+        SELECT comments.id,content,create_time,users.id,users.user_name,reply_obj_id FROM dictionary.comments,dictionary.users WHERE father_comment_id=#{father_comment_id}
+    </select>
+    <select id="getAuthorName" resultMap="getUsers">
+        SELECT id,user_name FROM dictionary.users WHERE id=#{Author_name}
+   </select>
+</mapper>

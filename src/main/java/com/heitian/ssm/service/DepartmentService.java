@@ -9,9 +9,7 @@ import java.util.List;
  */
 public interface DepartmentService {
     List<String> getDepartments();
-
     List<String> getDepartment(String Departments);
-
     SickContent getContents(Integer Department,Integer Sicks,Integer Content);
     List<String> getSicks(Integer Department,Integer Sick);
 }

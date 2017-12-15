@@ -7,11 +7,29 @@
         <result column="kind" property="kind"/>
         <result column="tittle" property="tittle"/>
         <result column="content" property="content"/>
+        <result column="class_fuck" property="class_fuck"/>
+        <result column="praise_num" property="praise_num"/>
+        <result column="scan_num" property="scan_num"/>
     </resultMap>
+    <update id="addScan_num">
+        UPDATE dictionary.getposts SET scan_num=scan_num+1 WHERE id=#{post_id}
+    </update>
     <select id="getPostsByAbbreviation" resultType="com.heitian.ssm.model.Posts">
-        SELECT id,tittle,ImageAddress FROM getposts WHERE kind=#{abbreviation}
+        SELECT id,tittle,ImageAddress,praise_num FROM getposts WHERE kind=#{abbreviation}
     </select>
     <select id="getContentsById" resultType="com.heitian.ssm.model.Posts">
-        SELECT tittle,content FROM getposts WHERE id=#{id}
+        SELECT tittle,content,id,praise_num FROM getposts WHERE id=#{id}
+    </select>
+    <select id="selectPraise" resultType="java.lang.Integer">
+        SELECT parise FROM dictionary.getposts WHERE id=#{post_id}
+    </select>
+    <select id="sendRedirect" resultType="com.heitian.ssm.model.Posts">
+        SELECT tittle,class_fuck FROM dictionary.getposts WHERE id=#{post_id}
+    </select>
+    <select id="getPosts" resultType="java.lang.Integer">
+        SELECT post_id FROM  dictionary.user_collections WHERE user_id=#{user_id}
+    </select>
+    <select id="getPostsById" resultType="com.heitian.ssm.model.Posts">
+        SELECT id,ImageAddress,tittle,content,praise_num,scan_num FROM dictionary.getposts WHERE id=#{post_id}
     </select>
 </mapper>

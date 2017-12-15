@@ -7,12 +7,56 @@ import java.util.Date;
  */
 public class Posts {
     private Integer id;
-
     private String imageAddress;
     private String kind;
     private String tittle;
     private String content;
     private String url;
+    private Integer scan_num;
+    private String class_fuck;
+    private Boolean is_user_praise;
+    private Integer praise_num;
+    private String comments_url;
+
+    public String getComments_url() {
+        return comments_url;
+    }
+
+    public void setComments_url(String comments_url) {
+        this.comments_url = comments_url;
+    }
+
+    public Integer getPraise_num() {
+        return praise_num;
+    }
+
+    public void setPraise_num(Integer praise_num) {
+        this.praise_num = praise_num;
+    }
+
+    public Boolean getIs_user_praise() {
+        return is_user_praise;
+    }
+
+    public void setIs_user_praise(Boolean is_user_praise) {
+        this.is_user_praise = is_user_praise;
+    }
+
+    public String getClass_fuck() {
+        return class_fuck;
+    }
+
+    public void setClass_fuck(String class_fuck) {
+        this.class_fuck = class_fuck;
+    }
+
+    public Integer getScan_num() {
+        return scan_num;
+    }
+
+    public void setScan_num(Integer scan_num) {
+        this.scan_num = scan_num;
+    }
 
     public String getUrl() {
         return url;

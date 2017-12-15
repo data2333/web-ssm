@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.heitian.ssm.dao.GetFoodsDao">
+    <resultMap id="foods" type="com.heitian.ssm.model.Foods">
+        <id column="id" property="id" javaType="Integer"/>
+        <result column="effects" property="effects"/>
+        <result column="warning" property="warning" javaType="String"/>
+        <result property="name" column="name"/>
+        <result column="head" property="head"/>
+        <result column="kind" property="kind"/>
+    </resultMap>
+    <resultMap id="foods_key" type="com.heitian.ssm.model.Foods">
+        <id column="id" property="id" javaType="Integer"/>
+        <result column="foods" property="name"/>
+        <result column="kind" property="kind"/>
+    </resultMap>
+    <resultMap id="le_ha" type="com.heitian.ssm.model.Le_ha_handler">
+        <id column="id" property="id" javaType="Integer"/>
+        <result column="not_eat_togger" property="not_eat_togger"/>
+        <result column="about_waning" property="about_waning"/>
+        <result property="name" column="name"/>
+        <result column="mother_and_baby" property="mother_and_baby"/>
+    </resultMap>
+    <insert id="addEffects">
+        insert into effects values (NULL,#{effects});
+    </insert>
+    <select id="getFoods" resultType="java.lang.String">
+        SELECT name FROM dictionary.foods_effects_warnings WHERE kind=#{kind} order by convert(name USING gbk) COLLATE gbk_chinese_ci
+    </select>
+    <select id="getFoodsInformation" resultType="com.heitian.ssm.model.Foods">
+        SELECT * FROM dictionary.foods_effects_warnings WHERE name=#{name} and kind=#{kind}
+    </select>
+    <select id="getHandler" resultType="com.heitian.ssm.model.Le_ha_handler">
+        SELECT * FROM dictionary.le_ha_handler  WHERE id=#{id}
+    </select>
+    <select id="getEffects" resultType="java.lang.String">
+        SELECT DISTINCT effects FROM effectandfoods
+    </select>
+    <select id="getKeyFoods" resultMap="foods_key">
+        SELECT DISTINCT kind,foods FROM dictionary.effectandfoods WHERE effects like concat(concat('%',#{key}),'%')
+    </select>
+    <select id="getFoodsByName" resultMap="foods">
+        SELECT * FROM foods_effects_warnings WHERE name=#{name}
+    </select>
+</mapper>
